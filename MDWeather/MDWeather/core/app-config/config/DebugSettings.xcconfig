@@ -1,0 +1,10 @@
+//
+//  DebugSettings.xcconfig
+//  MDWeather
+//
+//  Created by Edilberto Ramos on 24/09/22.
+//
+
+SLASH=/
+
+SERVICE_BASE_URL = https:$(SLASH)/api.openweathermap.org/data/2.5

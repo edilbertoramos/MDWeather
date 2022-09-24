@@ -7,8 +7,16 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct WeatherView: View {
+    
+    @EnvironmentObject var viewModel: WeatherViewModel
+
     var body: some View {
+        VStack {
+            Button("Test") {
+                viewModel.weaher()
+            }
+        }
         Text("Hello, world!")
             .padding()
     }
@@ -16,6 +24,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        WeatherView()
     }
 }
