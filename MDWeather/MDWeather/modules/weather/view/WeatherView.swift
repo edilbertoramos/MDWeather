@@ -13,12 +13,39 @@ struct WeatherView: View {
 
     var body: some View {
         VStack {
-            Button("Test") {
-                viewModel.weaher()
+            if let data = viewModel.data {
+                Text(data.cityName)
+                    .padding(5)
+                    .font(.title2)
+                if let icon = viewModel.icon {
+                    Image(uiImage: icon)
+                }
+                VStack {
+                    Text(String(
+                        format: "%@º",
+                        arguments: [data.currentTemperature]
+                    )).font(.largeTitle)
+                    Text(data.description.capitalized)
+                        .font(.body)
+                }.padding(5)
+                VStack {
+                    Text(String(
+                        format: "Low: %@º High: %@º",
+                        arguments: [data.minTemperature, data.maxTemperature]
+                    ))
+                    .font(.title3)
+                    .padding(5)
+                    Text(String(
+                        format: "Wind: %@ (%@)",
+                        arguments: [data.windSpeed, data.windDeg]
+                    ))
+                    .font(.title3)
+                }.padding()
             }
         }
-        Text("Hello, world!")
-            .padding()
+        .onAppear {
+            viewModel.getWeaherData()
+        }
     }
 }
 

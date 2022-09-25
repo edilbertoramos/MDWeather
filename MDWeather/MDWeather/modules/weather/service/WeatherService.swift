@@ -20,11 +20,17 @@ final class WeatherService: WeatherServiceProtocol {
         parameters["appid"] = "d4277b87ee5c71a468ec0c3dc311a724"
         parameters["lat"] = latitude
         parameters["lon"] = longitude
+        parameters["units"] = "metric"
         
         return try await MDServiceHelper.get(
             url: url,
             parameters: parameters
         )
+    }
+    
+    func image(image: ImageScaleDefinitionProtocol, localUrl: String) async throws -> MDServiceResult<URL> {
+        let url = try MDServiceHelper.makeUrl(withImage: image.makeFullName())
+        return try await MDServiceHelper.download(url: url, to: localUrl)
     }
     
 }

@@ -4,5 +4,7 @@
 <dict>
 	<key>ServiceBaseUrl</key>
 	<string>$(SERVICE_BASE_URL)</string>
+	<key>ServiceIconUrl</key>
+	<string>$(SERVICE_ICON_URL)</string>
 </dict>
 </plist>

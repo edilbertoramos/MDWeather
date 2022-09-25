@@ -20,5 +20,7 @@ public enum MDServiceError: Error {
     case custom(String)
     case empty
     case invalidUrl
+    case invalidImageUrl
+    case invalidLocalImageUrl
 
 }

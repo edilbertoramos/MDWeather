@@ -28,6 +28,14 @@
 		EBDCEAFD28DF8F2A00EC6B35 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEAFC28DF8F2A00EC6B35 /* AppConfig.swift */; };
 		EBDCEB0028DF968500EC6B35 /* AppConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEAFF28DF968500EC6B35 /* AppConfigTests.swift */; };
 		EBDCEB0228DF972E00EC6B35 /* ServiceHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB0128DF972E00EC6B35 /* ServiceHelperTests.swift */; };
+		EBDCEB0428DF9B9B00EC6B35 /* WeatherViewDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB0328DF9B9B00EC6B35 /* WeatherViewDataProtocol.swift */; };
+		EBDCEB0728DFA3F600EC6B35 /* ImageScaleDefinitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB0628DFA3F600EC6B35 /* ImageScaleDefinitionProtocol.swift */; };
+		EBDCEB0928DFA5C400EC6B35 /* DefaultImageScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB0828DFA5C400EC6B35 /* DefaultImageScale.swift */; };
+		EBDCEB0B28DFA5DC00EC6B35 /* ImageScaleTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB0A28DFA5DC00EC6B35 /* ImageScaleTwo.swift */; };
+		EBDCEB0D28DFA5E200EC6B35 /* ImageScaleThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB0C28DFA5E200EC6B35 /* ImageScaleThree.swift */; };
+		EBDCEB1228DFA89D00EC6B35 /* ImageScaleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB1128DFA89D00EC6B35 /* ImageScaleHelper.swift */; };
+		EBDCEB1528DFB0A900EC6B35 /* BucketHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB1428DFB0A900EC6B35 /* BucketHelper.swift */; };
+		EBDCEB1728DFCE8800EC6B35 /* WeatherConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB1628DFCE8800EC6B35 /* WeatherConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +85,14 @@
 		EBDCEAFC28DF8F2A00EC6B35 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		EBDCEAFF28DF968500EC6B35 /* AppConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigTests.swift; sourceTree = "<group>"; };
 		EBDCEB0128DF972E00EC6B35 /* ServiceHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHelperTests.swift; sourceTree = "<group>"; };
+		EBDCEB0328DF9B9B00EC6B35 /* WeatherViewDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewDataProtocol.swift; sourceTree = "<group>"; };
+		EBDCEB0628DFA3F600EC6B35 /* ImageScaleDefinitionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScaleDefinitionProtocol.swift; sourceTree = "<group>"; };
+		EBDCEB0828DFA5C400EC6B35 /* DefaultImageScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageScale.swift; sourceTree = "<group>"; };
+		EBDCEB0A28DFA5DC00EC6B35 /* ImageScaleTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScaleTwo.swift; sourceTree = "<group>"; };
+		EBDCEB0C28DFA5E200EC6B35 /* ImageScaleThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScaleThree.swift; sourceTree = "<group>"; };
+		EBDCEB1128DFA89D00EC6B35 /* ImageScaleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScaleHelper.swift; sourceTree = "<group>"; };
+		EBDCEB1428DFB0A900EC6B35 /* BucketHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketHelper.swift; sourceTree = "<group>"; };
+		EBDCEB1628DFCE8800EC6B35 /* WeatherConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +145,9 @@
 			children = (
 				EBDCEAF928DF8E9200EC6B35 /* Info.plist */,
 				EBDCEAA128DF6F4E00EC6B35 /* MDWeatherApp.swift */,
+				EBDCEAA528DF6F5000EC6B35 /* Assets.xcassets */,
 				EBDCEAE428DF83F400EC6B35 /* core */,
 				EBDCEAF128DF892000EC6B35 /* modules */,
-				EBDCEAA528DF6F5000EC6B35 /* Assets.xcassets */,
 				EBDCEAA728DF6F5000EC6B35 /* Preview Content */,
 			);
 			path = MDWeather;
@@ -195,6 +211,7 @@
 		EBDCEAE428DF83F400EC6B35 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				EBDCEB0528DFA3C000EC6B35 /* utils */,
 				EBDCEAF728DF8CD900EC6B35 /* app-config */,
 				EBDCEAEF28DF86CC00EC6B35 /* service */,
 			);
@@ -232,6 +249,7 @@
 		EBDCEAF228DF892F00EC6B35 /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				EBDCEB1628DFCE8800EC6B35 /* WeatherConstants.swift */,
 				EBDCEAF328DF896F00EC6B35 /* protocol */,
 				EBDCEAD528DF78FC00EC6B35 /* model */,
 				EBDCEACB28DF719B00EC6B35 /* service */,
@@ -245,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				EBDCEAF428DF897900EC6B35 /* WeatherServiceProtocol.swift */,
+				EBDCEB0328DF9B9B00EC6B35 /* WeatherViewDataProtocol.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -265,6 +284,51 @@
 				EBDCEAF828DF8CED00EC6B35 /* DebugSettings.xcconfig */,
 			);
 			path = config;
+			sourceTree = "<group>";
+		};
+		EBDCEB0528DFA3C000EC6B35 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				EBDCEB1328DFACB700EC6B35 /* bucket */,
+				EBDCEB0E28DFA79D00EC6B35 /* image-scale */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		EBDCEB0E28DFA79D00EC6B35 /* image-scale */ = {
+			isa = PBXGroup;
+			children = (
+				EBDCEB1128DFA89D00EC6B35 /* ImageScaleHelper.swift */,
+				EBDCEB1028DFA7BE00EC6B35 /* model */,
+				EBDCEB0F28DFA7B500EC6B35 /* protocol */,
+			);
+			path = "image-scale";
+			sourceTree = "<group>";
+		};
+		EBDCEB0F28DFA7B500EC6B35 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EBDCEB0628DFA3F600EC6B35 /* ImageScaleDefinitionProtocol.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		EBDCEB1028DFA7BE00EC6B35 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				EBDCEB0828DFA5C400EC6B35 /* DefaultImageScale.swift */,
+				EBDCEB0A28DFA5DC00EC6B35 /* ImageScaleTwo.swift */,
+				EBDCEB0C28DFA5E200EC6B35 /* ImageScaleThree.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		EBDCEB1328DFACB700EC6B35 /* bucket */ = {
+			isa = PBXGroup;
+			children = (
+				EBDCEB1428DFB0A900EC6B35 /* BucketHelper.swift */,
+			);
+			path = bucket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,19 +463,27 @@
 			files = (
 				EBDCEAF528DF897900EC6B35 /* WeatherServiceProtocol.swift in Sources */,
 				EBDCEAD728DF795D00EC6B35 /* WeatherResult.swift in Sources */,
+				EBDCEB0728DFA3F600EC6B35 /* ImageScaleDefinitionProtocol.swift in Sources */,
 				EBDCEAFD28DF8F2A00EC6B35 /* AppConfig.swift in Sources */,
 				EBDCEAE628DF83FE00EC6B35 /* MDServiceError.swift in Sources */,
+				EBDCEB1728DFCE8800EC6B35 /* WeatherConstants.swift in Sources */,
 				EBDCEAEE28DF864300EC6B35 /* MDServiceMethod.swift in Sources */,
 				EBDCEAEC28DF842100EC6B35 /* MDServiceResult.swift in Sources */,
 				EBDCEAE328DF7FCE00EC6B35 /* WeatherViewModel.swift in Sources */,
 				EBDCEAE828DF840B00EC6B35 /* MDServiceEndpoint.swift in Sources */,
 				EBDCEAD428DF73E900EC6B35 /* WeatherService.swift in Sources */,
 				EBDCEADE28DF7AEC00EC6B35 /* Temperature.swift in Sources */,
+				EBDCEB0D28DFA5E200EC6B35 /* ImageScaleThree.swift in Sources */,
 				EBDCEAD328DF73E900EC6B35 /* MDServiceHelper.swift in Sources */,
+				EBDCEB1528DFB0A900EC6B35 /* BucketHelper.swift in Sources */,
 				EBDCEAA428DF6F4E00EC6B35 /* WeatherView.swift in Sources */,
 				EBDCEAA228DF6F4E00EC6B35 /* MDWeatherApp.swift in Sources */,
+				EBDCEB0B28DFA5DC00EC6B35 /* ImageScaleTwo.swift in Sources */,
 				EBDCEADC28DF798200EC6B35 /* Weather.swift in Sources */,
+				EBDCEB1228DFA89D00EC6B35 /* ImageScaleHelper.swift in Sources */,
 				EBDCEAE028DF7B5100EC6B35 /* Wind.swift in Sources */,
+				EBDCEB0428DF9B9B00EC6B35 /* WeatherViewDataProtocol.swift in Sources */,
+				EBDCEB0928DFA5C400EC6B35 /* DefaultImageScale.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +650,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MDWeather/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -609,6 +682,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MDWeather/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

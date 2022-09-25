@@ -11,16 +11,22 @@ public struct MDServiceHelper {
 
     private init() {}
 
-    public static var baseUrl: String {
-        get throws {
-            try AppConfig.shared.baseUrl
-        }
-    }
+}
+
+// MARK: - Make URL
+public extension MDServiceHelper {
     
     static func makeUrl(withEndPoint service: MDServiceEndpoint) throws -> String {
         return String(
             format: "%@/%@",
             arguments: [try baseUrl, service.endpoint]
+        )
+    }
+    
+    static func makeUrl(withImage name: String) throws -> String {
+        return String(
+            format: "%@/%@",
+            arguments: [try iconUrl, name]
         )
     }
 
@@ -54,12 +60,104 @@ public extension MDServiceHelper {
             urlSessionTask.resume()
         }
     }
+    
+    static func download(url: String, to localUrl: String) async throws -> MDServiceResult<URL> {
+        guard let url = URL(string: url) else {
+            throw MDServiceError.invalidImageUrl
+        }
+        
+        guard let localUrl = URL(string: localUrl) else {
+            throw MDServiceError.invalidLocalImageUrl
+        }
+        
+        #if DEBUG
+        print("Download URL: \(url)")
+        print("Local URL: \(localUrl)")
+        #endif
+        return try await withUnsafeThrowingContinuation { continuation in
+            guard !FileManager.default.fileExists(atPath: localUrl.path) else {
+                do {
+                    let imageData = try BucketHelper.shared.loadImageData(for: localUrl)
+                    continuation.resume(
+                        returning: (imageData, .success(localUrl))
+                    )
+                } catch {
+                    #if DEBUG
+                    print("Error loading file")
+                    #endif
+                    continuation.resume(throwing: error)
+                }
+                return
+            }
+            let task  = URLSession.shared.downloadTask(with: url) { tempUrl, _, error in
+                guard let tempUrl = tempUrl, error == nil else {
+                    #if DEBUG
+                    print("Error downloading file: \(error!)")
+                    #endif
+                    
+                    continuation.resume(throwing: error!)
+                    return
+                }
+                do {
+                    if !FileManager.default.fileExists(atPath: localUrl.path) {
+                        try FileManager.default.copyItem(at: tempUrl, to: localUrl)
+                    }
+                } catch {
+                    #if DEBUG
+                    print("Error moving file to actual file")
+                    #endif
+                    continuation.resume(throwing: error)
+                }
+                #if DEBUG
+                print("Downloaded file \(url)")
+                #endif
+                do {
+                    let imageData = try BucketHelper.shared.loadImageData(for: localUrl)
+                    continuation.resume(
+                        returning: (imageData, .success(localUrl))
+                    )
+                } catch {
+                    #if DEBUG
+                    print("Error loading file")
+                    #endif
+                    continuation.resume(throwing: error)
+                }
+            }
+            task.resume()
+        }
+    }
 
 }
 
 // MARK: - Helper
 private extension MDServiceHelper {
 
+    static var baseUrl: String {
+        get throws {
+            do {
+                return try AppConfig.shared.baseUrl
+            } catch {
+                #if DEBUG
+                print(error)
+                #endif
+                throw error
+            }
+        }
+    }
+    
+    static var iconUrl: String {
+        get throws {
+            do {
+                return try AppConfig.shared.iconUrl
+            } catch {
+                #if DEBUG
+                print(error)
+                #endif
+                throw error
+            }
+        }
+    }
+    
     static func makeRequest(url: String, method: MDServiceMethod) throws -> URLRequest {
         #if DEBUG
         print(url)
