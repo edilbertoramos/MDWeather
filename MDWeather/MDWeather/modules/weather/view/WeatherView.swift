@@ -12,55 +12,69 @@ struct WeatherView: View {
     @EnvironmentObject var viewModel: WeatherViewModel
     private let Label = WeatherConstants.Label.self
     private let labelColor = Color.white
+    private let placeholder = "-----"
     
     var body: some View {
-        Color.indigo.ignoresSafeArea()
+        Color.accentColor.ignoresSafeArea()
             .overlay(
                 VStack {
-                    if let data = viewModel.data {
-                        Text(data.cityName)
-                            .font(.title)
-                            .padding(20)
-                            .foregroundColor(labelColor)
-                        if let icon = viewModel.icon ?? WeatherConstants.Image.imageNotLoaded  {
+                    Text(viewModel.data?.cityName ?? placeholder)
+                        .font(.system(size: 30))
+                        .padding(30)
+                        .foregroundColor(labelColor)
+                        .redacted(reason: viewModel.data == nil ? .placeholder : [])
+                    VStack {
+                        if let icon = viewModel.icon {
                             Image(uiImage: icon)
                                 .frame(width: 20, height: 20)
+                        } else {
+                            Image(uiImage: WeatherConstants.Image.imageNotLoaded ?? .init())
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(.orange)
+                                .cornerRadius(10)
                         }
-                        VStack {
-                            Text(String(
-                                format: Label.temperature,
-                                arguments: [data.currentTemperature]
-                            ))
-                            .font(
-                                .system(size: 80)
-                                .weight(.thin)
-                            )
-                            .foregroundColor(labelColor)
-                            Text(data.description.localizedCapitalized)
-                                .font(.title2)
-                                .foregroundColor(labelColor)
-                        }
-                        VStack {
-                            Text(String(
-                                format: Label.minAndMaxTemperature,
-                                arguments: [data.minTemperature, data.maxTemperature]
-                            ))
-                            .font(.title3)
-                            .padding(2)
-                            .foregroundColor(labelColor)
-                            Text(String(
-                                format: Label.wind,
-                                arguments: [data.windSpeed, data.windDeg]
-                            ))
-                            .font(.title3)
-                            .foregroundColor(labelColor)
-                        }.padding()
-                    }
+                    }.redacted(reason: viewModel.icon == nil ? .placeholder : [])
+                    VStack {
+                        Text(String(
+                            format: Label.temperature,
+                            arguments: [viewModel.data?.currentTemperature ?? placeholder]
+                        ))
+                        .font(
+                            .system(size: 90)
+                            .weight(.thin)
+                        )
+                        .foregroundColor(labelColor)
+                        Text(viewModel.data?.description.localizedCapitalized ?? placeholder)
+                            .font(.title2)
+                            .foregroundColor(.yellow)
+                    }.redacted(reason: viewModel.data == nil ? .placeholder : [])
+                    VStack {
+                        Text(String(
+                            format: Label.minAndMaxTemperature,
+                            arguments: [
+                                viewModel.data?.minTemperature ?? placeholder,
+                                viewModel.data?.maxTemperature ?? placeholder]
+                        ))
+                        .font(.title3).italic()
+                        .padding(2)
+                        .foregroundColor(labelColor)
+                        Text(String(
+                            format: Label.wind,
+                            arguments: [
+                                viewModel.data?.windSpeed ?? placeholder,
+                                viewModel.data?.windDeg ?? placeholder
+                            ]
+                        ))
+                        .font(.title3).italic()
+                        .foregroundColor(.cyan)
+                    }.padding(30).redacted(reason: viewModel.data == nil ? .placeholder : [])
+                    
                 }.onAppear {
                     viewModel.getWeaherData()
                 }
             )
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

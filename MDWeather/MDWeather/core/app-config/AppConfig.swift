@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AppConfig {
+public struct AppConfig {
     
     enum AppConfigKey: String {
         case serviceBaseUrl = "ServiceBaseUrl"
@@ -15,17 +15,17 @@ struct AppConfig {
     }
     
     enum AppConfigError: Error {
-        case configNotFound
+        case configNotFound(_ config: String)
     }
     
-    static let shared = AppConfig()
+    public static let shared = AppConfig()
     
     private init() {}
     
 }
 
-// MARK: - Helper
-extension AppConfig {
+// MARK: - Public
+public extension AppConfig {
     
     var baseUrl: String {
         get throws {
@@ -39,12 +39,16 @@ extension AppConfig {
         }
     }
     
-    private func getConfig(forKey key: AppConfigKey) throws -> String {
+}
+
+// MARK: - Helper
+private extension AppConfig {
+
+    func getConfig(forKey key: AppConfigKey) throws -> String {
         guard let config = Bundle.main.infoDictionary?[key.rawValue] as? String else {
-            throw AppConfigError.configNotFound
+            throw AppConfigError.configNotFound(key.rawValue)
         }
         return config
     }
     
 }
-

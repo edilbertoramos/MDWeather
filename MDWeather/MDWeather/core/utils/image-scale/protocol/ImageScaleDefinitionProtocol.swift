@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ImageScaleDefinitionProtocol {
+public protocol ImageScaleDefinitionProtocol {
     
     var scale: CGFloat { get }
     var scaleDescription: String { get }
@@ -19,7 +19,7 @@ protocol ImageScaleDefinitionProtocol {
 }
 
 // MARK: - Default
-extension ImageScaleDefinitionProtocol {
+public extension ImageScaleDefinitionProtocol {
     
     func makeFullName() -> String {
         return String(

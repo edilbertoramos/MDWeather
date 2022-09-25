@@ -11,5 +11,12 @@
 	<string>$(SERVICE_BASE_URL)</string>
 	<key>ServiceIconUrl</key>
 	<string>$(SERVICE_ICON_URL)</string>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>AccentColor</string>
+		<key>UIImageName</key>
+		<string>weather</string>
+	</dict>
 </dict>
 </plist>

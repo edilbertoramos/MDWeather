@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct BucketHelper {
+public struct BucketHelper {
     
     private enum BuckekError: Error {
         case folderError
@@ -16,25 +16,16 @@ struct BucketHelper {
         case imageNotLoadedFromData(name: String?)
     }
     
-    static let shared = BucketHelper()
+    public static let shared = BucketHelper()
+    
     private let imagesFolderName = "images"
     
-    private var imagesFolderUrl: URL {
-        get throws {
-            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            guard let folder = urls.first?.appendingPathComponent(imagesFolderName, isDirectory: true) else {
-                throw BuckekError.folderError
-            }
-            do {
-                try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
-            } catch {
-                throw error
-            }
-            return folder
-        }
-    }
-    
     private init() {}
+
+}
+
+// MARK: - Public
+public extension BucketHelper {
     
     func makeUrl(toImage name: String) throws -> String {
         return try imagesFolderUrl.appendingPathComponent(name).absoluteString
@@ -57,6 +48,26 @@ struct BucketHelper {
         
         let imageData = try Data(contentsOf: url)
         return imageData
+    }
+    
+}
+
+// MARK: - Helper
+private extension BucketHelper {
+
+    var imagesFolderUrl: URL {
+        get throws {
+            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            guard let folder = urls.first?.appendingPathComponent(imagesFolderName, isDirectory: true) else {
+                throw BuckekError.folderError
+            }
+            do {
+                try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+            } catch {
+                throw error
+            }
+            return folder
+        }
     }
     
 }

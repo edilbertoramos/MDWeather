@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-struct ImageScaleHelper {
+public struct ImageScaleHelper {
     
-    static let shared = ImageScaleHelper()
+    public static let shared = ImageScaleHelper()
     
     private init() {}
     

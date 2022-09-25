@@ -55,7 +55,7 @@ extension WeatherViewModel {
             guard let data = data else { return }
             let imageScaleDefnition = ImageScaleHelper.shared.getImageScaleDefnition(
                 name: data.icon,
-                type: "png"
+                type: WeatherConstants.IconExtension.png
             )
             do {
                 let localUrl = try BucketHelper.shared.makeUrl(toImage: imageScaleDefnition.makeFullName())

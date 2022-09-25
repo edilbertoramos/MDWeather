@@ -9,8 +9,16 @@ import UIKit
 
 struct WeatherConstants {
     
+    enum CustomColor {
+        static let main = UIColor.hex("#242424")
+    }
+    
+    enum IconExtension {
+        static let png = "png"
+    }
+    
     enum Image {
-        static let imageNotLoaded = UIImage(systemName: "photo.fill")
+        static let imageNotLoaded = UIImage(systemName: "photo")
     }
     
     enum Label {
