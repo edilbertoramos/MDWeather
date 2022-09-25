@@ -42,19 +42,19 @@ extension WeatherResult: WeatherViewDataProtocol {
     }
     
     var currentTemperature: String {
-        String(main.temp)
+        main.temp.toCeilString
     }
     
     var minTemperature: String {
-        String(main.temp_min)
+        main.tempMin.toCeilString
     }
     
     var maxTemperature: String {
-        String(main.temp_max)
+        main.tempMax.toCeilString
     }
     
     var windSpeed: String {
-        String(wind.speed)
+        wind.speed.toDecimalString
     }
     
     var windDeg: String {

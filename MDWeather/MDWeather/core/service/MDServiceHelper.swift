@@ -94,7 +94,6 @@ public extension MDServiceHelper {
                     #if DEBUG
                     print("Error downloading file: \(error!)")
                     #endif
-                    
                     continuation.resume(throwing: error!)
                     return
                 }
@@ -199,7 +198,6 @@ private extension MDServiceHelper {
                 format: "[Error] API response error - STATUS CODE [%@]",
                 arguments: [response.statusCode]
             )
-            
             return .failure(.custom(errorMessage))
         }
     }

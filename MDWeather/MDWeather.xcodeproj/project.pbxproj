@@ -36,6 +36,7 @@
 		EBDCEB1228DFA89D00EC6B35 /* ImageScaleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB1128DFA89D00EC6B35 /* ImageScaleHelper.swift */; };
 		EBDCEB1528DFB0A900EC6B35 /* BucketHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB1428DFB0A900EC6B35 /* BucketHelper.swift */; };
 		EBDCEB1728DFCE8800EC6B35 /* WeatherConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB1628DFCE8800EC6B35 /* WeatherConstants.swift */; };
+		EBDCEB1A28E0005600EC6B35 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCEB1928E0005600EC6B35 /* Double+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		EBDCEB1128DFA89D00EC6B35 /* ImageScaleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScaleHelper.swift; sourceTree = "<group>"; };
 		EBDCEB1428DFB0A900EC6B35 /* BucketHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketHelper.swift; sourceTree = "<group>"; };
 		EBDCEB1628DFCE8800EC6B35 /* WeatherConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConstants.swift; sourceTree = "<group>"; };
+		EBDCEB1928E0005600EC6B35 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 		EBDCEB0528DFA3C000EC6B35 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				EBDCEB1828E0003100EC6B35 /* extensions */,
 				EBDCEB1328DFACB700EC6B35 /* bucket */,
 				EBDCEB0E28DFA79D00EC6B35 /* image-scale */,
 			);
@@ -329,6 +332,14 @@
 				EBDCEB1428DFB0A900EC6B35 /* BucketHelper.swift */,
 			);
 			path = bucket;
+			sourceTree = "<group>";
+		};
+		EBDCEB1828E0003100EC6B35 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EBDCEB1928E0005600EC6B35 /* Double+Extensions.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBDCEB1A28E0005600EC6B35 /* Double+Extensions.swift in Sources */,
 				EBDCEAF528DF897900EC6B35 /* WeatherServiceProtocol.swift in Sources */,
 				EBDCEAD728DF795D00EC6B35 /* WeatherResult.swift in Sources */,
 				EBDCEB0728DFA3F600EC6B35 /* ImageScaleDefinitionProtocol.swift in Sources */,

@@ -13,4 +13,10 @@ struct WeatherConstants {
         static let imageNotLoaded = UIImage(systemName: "photo.fill")
     }
     
+    enum Label {
+        static let temperature = "%@º"
+        static let minAndMaxTemperature = "Low: %@º  High: %@º"
+        static let wind = "Wind: %@ (%@)"
+    }
+    
 }
