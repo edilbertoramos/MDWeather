@@ -17,7 +17,7 @@ final class WeatherService: WeatherServiceProtocol {
         let url = try MDServiceHelper.makeUrl(withEndPoint: EndPoint.weather)
         
         var parameters = [String: Any]()
-        parameters["appid"] = "d4277b87ee5c71a468ec0c3dc311a724"
+        parameters["appid"] = try AppConfig.shared.apiKey
         parameters["lat"] = coordinate.latitude
         parameters["lon"] = coordinate.longitude
         parameters["units"] = "metric"

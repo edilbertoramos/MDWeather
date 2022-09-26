@@ -9,3 +9,4 @@ SLASH=/
 
 SERVICE_BASE_URL = https:$(SLASH)/api.openweathermap.org/data/2.5
 SERVICE_ICON_URL = http:$(SLASH)/openweathermap.org/img/wn
+API_KEY = d4277b87ee5c71a468ec0c3dc311a724

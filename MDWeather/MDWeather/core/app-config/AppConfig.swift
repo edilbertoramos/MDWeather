@@ -12,6 +12,7 @@ public struct AppConfig {
     enum AppConfigKey: String {
         case serviceBaseUrl = "ServiceBaseUrl"
         case serviceIconUrl = "ServiceIconUrl"
+        case apiKey = "ApiKey"
     }
     
     enum AppConfigError: Error {
@@ -36,6 +37,12 @@ public extension AppConfig {
     var iconUrl: String {
         get throws {
             try getConfig(forKey: .serviceIconUrl)
+        }
+    }
+    
+    var apiKey: String {
+        get throws {
+            try getConfig(forKey: .apiKey)
         }
     }
     
