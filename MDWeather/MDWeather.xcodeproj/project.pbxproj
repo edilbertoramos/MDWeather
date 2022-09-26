@@ -157,7 +157,6 @@
 			children = (
 				EBDCEAF928DF8E9200EC6B35 /* Info.plist */,
 				EBDCEAA128DF6F4E00EC6B35 /* MDWeatherApp.swift */,
-				EBDCEAA528DF6F5000EC6B35 /* Assets.xcassets */,
 				EBDCEAE428DF83F400EC6B35 /* core */,
 				EBDCEAF128DF892000EC6B35 /* modules */,
 				EBDCEAA728DF6F5000EC6B35 /* Preview Content */,
@@ -224,6 +223,7 @@
 		EBDCEAE428DF83F400EC6B35 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				EBF966F828E14A4200D962F0 /* resources */,
 				EBDCEAF728DF8CD900EC6B35 /* app-config */,
 				EBDCEB2228E1332E00EC6B35 /* location-manager */,
 				EBDCEAEF28DF86CC00EC6B35 /* service */,
@@ -379,6 +379,14 @@
 				EBDCEB2328E1335E00EC6B35 /* UserLocationView.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		EBF966F828E14A4200D962F0 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				EBDCEAA528DF6F5000EC6B35 /* Assets.xcassets */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
