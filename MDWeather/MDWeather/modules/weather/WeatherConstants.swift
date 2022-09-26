@@ -9,6 +9,9 @@ import UIKit
 
 struct WeatherConstants {
     
+    // TODO: enable to use coordinate mock to test: Default - false
+    static let coordinateMockIsEnable: Bool = false
+    
     enum Color {
         static let darkLabel = UIColor.hex("#242424")
         static let lightLabel = UIColor.hex("#967802")

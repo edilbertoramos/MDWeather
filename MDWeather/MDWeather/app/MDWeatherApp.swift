@@ -16,13 +16,15 @@ struct MDWeatherApp: App {
     
     var body: some Scene {
         WindowGroup {
-            UserLocationView()
-            // TODO: use default coordinate to test
-            // defaultCoordinateView
+            if WeatherConstants.coordinateMockIsEnable {
+                coordinateMockView
+            } else {
+                UserLocationView()
+            }           
         }
     }
     
-    var defaultCoordinateView: some View {
+    var coordinateMockView: some View {
         VStack {
             let coordinate = Coordinate(
                 latitude: "34.0194704",
