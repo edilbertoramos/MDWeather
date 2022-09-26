@@ -16,7 +16,7 @@
 		<key>UIColorName</key>
 		<string>AccentColor</string>
 		<key>UIImageName</key>
-		<string>weather</string>
+		<string>cloud.sun</string>
 	</dict>
 </dict>
 </plist>

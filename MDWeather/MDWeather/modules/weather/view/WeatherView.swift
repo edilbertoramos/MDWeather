@@ -11,17 +11,18 @@ struct WeatherView: View {
     
     @EnvironmentObject var viewModel: WeatherViewModel
     private let Label = WeatherConstants.Label.self
-    private let labelColor = Color.white
-    private let placeholder = "-----"
+    private let labelLightColor = Color(uiColor: WeatherConstants.Color.lightLabel)
+    private let labelDarkColor = Color(uiColor: WeatherConstants.Color.darkLabel)
+    private let placeholder = "     "
     
     var body: some View {
         Color.accentColor.ignoresSafeArea()
             .overlay(
                 VStack {
                     Text(viewModel.data?.cityName ?? placeholder)
-                        .font(.system(size: 30))
+                        .font(.largeTitle.weight(.medium))
                         .padding(30)
-                        .foregroundColor(labelColor)
+                        .foregroundColor(labelDarkColor)
                         .redacted(reason: viewModel.data == nil ? .placeholder : [])
                     VStack {
                         if let icon = viewModel.icon {
@@ -43,10 +44,10 @@ struct WeatherView: View {
                             .system(size: 90)
                             .weight(.thin)
                         )
-                        .foregroundColor(labelColor)
+                        .foregroundColor(labelDarkColor)
                         Text(viewModel.data?.description.localizedCapitalized ?? placeholder)
-                            .font(.title2)
-                            .foregroundColor(.yellow)
+                            .font(.title2.weight(.medium))
+                            .foregroundColor(labelLightColor)
                     }.redacted(reason: viewModel.data == nil ? .placeholder : [])
                     VStack {
                         Text(String(
@@ -57,7 +58,7 @@ struct WeatherView: View {
                         ))
                         .font(.title3).italic()
                         .padding(2)
-                        .foregroundColor(labelColor)
+                        .foregroundColor(labelLightColor)
                         Text(String(
                             format: Label.wind,
                             arguments: [
@@ -66,7 +67,7 @@ struct WeatherView: View {
                             ]
                         ))
                         .font(.title3).italic()
-                        .foregroundColor(.cyan)
+                        .foregroundColor(.gray)
                     }.padding(30).redacted(reason: viewModel.data == nil ? .placeholder : [])
                     
                 }.onAppear {

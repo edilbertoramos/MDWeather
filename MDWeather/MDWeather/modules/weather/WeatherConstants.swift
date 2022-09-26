@@ -9,8 +9,9 @@ import UIKit
 
 struct WeatherConstants {
     
-    enum CustomColor {
-        static let main = UIColor.hex("#242424")
+    enum Color {
+        static let darkLabel = UIColor.hex("#242424")
+        static let lightLabel = UIColor.hex("#967802")
     }
     
     enum IconExtension {
