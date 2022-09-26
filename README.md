@@ -22,8 +22,10 @@ Display weather details
 - Singleton
 - Factory
 
-## More designs 
+## Other designs 
 - POP - _Protocol Oriented Programming_
+- SOLID
+
 
 ## External libreries
 _Empty_
