@@ -34,6 +34,11 @@ extension WeatherViewModel {
 // MARK: - Helper
 extension WeatherViewModel {
     
+    func clear() {
+        data = nil
+        icon = nil
+    }
+    
     func getWeaherData() {
         Task {
             let result = try await service.weather(coordinate: coordinate)

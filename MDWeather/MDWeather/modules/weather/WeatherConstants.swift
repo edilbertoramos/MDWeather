@@ -12,6 +12,7 @@ struct WeatherConstants {
     enum Color {
         static let darkLabel = UIColor.hex("#242424")
         static let lightLabel = UIColor.hex("#967802")
+        static let background = UIColor.hex("#fbdc4f")
     }
     
     enum IconExtension {

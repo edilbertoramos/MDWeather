@@ -13,20 +13,31 @@ struct WeatherView: View {
     private let Label = WeatherConstants.Label.self
     private let labelLightColor = Color(uiColor: WeatherConstants.Color.lightLabel)
     private let labelDarkColor = Color(uiColor: WeatherConstants.Color.darkLabel)
+    private let backgroundColor = Color(uiColor: WeatherConstants.Color.background)
     private let placeholder = "     "
     
     var body: some View {
-        Color.accentColor.ignoresSafeArea()
-            .overlay(
-                VStack {
-                    cityName
-                    icon
-                    tempretatureContainer
-                    details
-                }.onAppear {
-                    viewModel.getWeaherData()
+        VStack {
+            List {
+                HStack {
+                    Spacer()
+                    VStack {
+                        cityName
+                        icon
+                        tempretatureContainer
+                        details
+                    }.frame(alignment: .center)
+                    Spacer()
                 }
-            )
+                .listRowBackground(backgroundColor)
+            }
+            .refreshable {
+                viewModel.clear()
+                viewModel.getWeaherData()
+            }
+        }.onAppear {
+            viewModel.getWeaherData()
+        }
     }
     
 }

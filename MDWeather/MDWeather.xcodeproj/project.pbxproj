@@ -156,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				EBDCEAF928DF8E9200EC6B35 /* Info.plist */,
-				EBDCEAA128DF6F4E00EC6B35 /* MDWeatherApp.swift */,
+				EBF966F928E15CFC00D962F0 /* app */,
 				EBDCEAE428DF83F400EC6B35 /* core */,
 				EBDCEAF128DF892000EC6B35 /* modules */,
 				EBDCEAA728DF6F5000EC6B35 /* Preview Content */,
@@ -387,6 +387,14 @@
 				EBDCEAA528DF6F5000EC6B35 /* Assets.xcassets */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		EBF966F928E15CFC00D962F0 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				EBDCEAA128DF6F4E00EC6B35 /* MDWeatherApp.swift */,
+			);
+			path = app;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

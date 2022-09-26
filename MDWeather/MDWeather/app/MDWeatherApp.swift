@@ -10,6 +10,10 @@ import SwiftUI
 @main
 struct MDWeatherApp: App {
     
+    init() {
+        UITableView.appearance().backgroundColor = UIColor(.accentColor)
+    }
+    
     var body: some Scene {
         WindowGroup {
             UserLocationView()
