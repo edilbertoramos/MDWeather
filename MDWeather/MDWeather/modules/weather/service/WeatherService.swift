@@ -13,13 +13,13 @@ final class WeatherService: WeatherServiceProtocol {
         case weather
     }
     
-    func weather(latitude: String, longitude: String) async throws -> MDServiceResult<WeatherResult> {
+    func weather(coordinate: Coordinate) async throws -> MDServiceResult<WeatherResult> {
         let url = try MDServiceHelper.makeUrl(withEndPoint: EndPoint.weather)
         
         var parameters = [String: Any]()
         parameters["appid"] = "d4277b87ee5c71a468ec0c3dc311a724"
-        parameters["lat"] = latitude
-        parameters["lon"] = longitude
+        parameters["lat"] = coordinate.latitude
+        parameters["lon"] = coordinate.longitude
         parameters["units"] = "metric"
         
         return try await MDServiceHelper.get(

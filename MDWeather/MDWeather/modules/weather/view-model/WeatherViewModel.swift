@@ -11,10 +11,12 @@ import UIKit
 final class WeatherViewModel: ObservableObject {
     
     private let service: WeatherServiceProtocol
+    private let coordinate: Coordinate
     @Published var data: WeatherViewDataProtocol?
     @Published var icon: UIImage?
 
-    private init(service: WeatherServiceProtocol) {
+    private init(coordinate: Coordinate, service: WeatherServiceProtocol) {
+        self.coordinate = coordinate
         self.service = service
     }
     
@@ -23,8 +25,8 @@ final class WeatherViewModel: ObservableObject {
 // MARK: - Factory
 extension WeatherViewModel {
     
-    static func create(with service: WeatherServiceProtocol = WeatherService()) -> WeatherViewModel {
-        return WeatherViewModel(service: service)
+    static func create(with coordinate: Coordinate, and service: WeatherServiceProtocol = WeatherService()) -> WeatherViewModel {
+        return WeatherViewModel(coordinate: coordinate, service: service)
     }
     
 }
@@ -34,10 +36,7 @@ extension WeatherViewModel {
     
     func getWeaherData() {
         Task {
-            let result = try await service.weather(
-                latitude: "34.0194704",
-                longitude: "-118.4912273"
-            )
+            let result = try await service.weather(coordinate: coordinate)
             switch result.result {
             case .success(let weatherResult):
                 DispatchQueue.main.async { [weak self] in

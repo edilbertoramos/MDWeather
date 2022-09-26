@@ -81,7 +81,11 @@ struct WeatherView: View {
 struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
-        let viewModel = WeatherViewModel.create()
+        let coordinate = Coordinate(
+            latitude: "34.0194704",
+            longitude: "-118.4912273"
+        )
+        let viewModel = WeatherViewModel.create(with: coordinate)
         WeatherView().environmentObject(viewModel)
     }
     

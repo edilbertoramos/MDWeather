@@ -12,8 +12,7 @@ struct MDWeatherApp: App {
     
     var body: some Scene {
         WindowGroup {
-            let viewModel = WeatherViewModel.create()
-            WeatherView().environmentObject(viewModel)
+            UserLocationView()
         }
     }
     

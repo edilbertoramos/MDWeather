@@ -9,7 +9,7 @@ import Foundation
 
 protocol WeatherServiceProtocol {
     
-    func weather(latitude: String, longitude: String) async throws -> MDServiceResult<WeatherResult>
+    func weather(coordinate: Coordinate) async throws -> MDServiceResult<WeatherResult>
     
     func image(image: ImageScaleDefinitionProtocol, localUrl: String) async throws -> MDServiceResult<URL>
 
