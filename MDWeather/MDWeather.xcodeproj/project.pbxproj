@@ -224,8 +224,8 @@
 		EBDCEAE428DF83F400EC6B35 /* core */ = {
 			isa = PBXGroup;
 			children = (
-				EBDCEB2228E1332E00EC6B35 /* location-manager */,
 				EBDCEAF728DF8CD900EC6B35 /* app-config */,
+				EBDCEB2228E1332E00EC6B35 /* location-manager */,
 				EBDCEAEF28DF86CC00EC6B35 /* service */,
 				EBDCEB0528DFA3C000EC6B35 /* utils */,
 			);

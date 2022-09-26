@@ -35,7 +35,7 @@ struct UserLocationView: View {
                     longitude: String(location.longitude)
                 )
                 let viewModel = WeatherViewModel.create(with: coordinate)
-                WeatherView().environmentObject(viewModel)
+                WeatherView(viewModel: viewModel)
             }
         }
     }
