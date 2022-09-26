@@ -29,4 +29,8 @@ struct WeatherConstants {
         static let wind = "Wind: %@ (%@)"
     }
     
+    enum UnitType {
+        static let metric = "metric"
+    }
+    
 }

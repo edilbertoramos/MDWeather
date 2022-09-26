@@ -20,7 +20,7 @@ final class WeatherService: WeatherServiceProtocol {
         parameters["appid"] = try AppConfig.shared.apiKey
         parameters["lat"] = coordinate.latitude
         parameters["lon"] = coordinate.longitude
-        parameters["units"] = "metric"
+        parameters["units"] = WeatherConstants.UnitType.metric
         
         return try await MDServiceHelper.get(
             url: url,
